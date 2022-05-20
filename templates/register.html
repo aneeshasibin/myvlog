@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<Html>
+<Head>
+<Title>
+Register form
+</Title>
+</Head>
+<Body>
+  <br><br>
+  <b style="font-size:40px; padding-left:54px;">Register Form</b>
+  <br><br>
+<form action="register" method="post" style="padding-left:54px;">
+  {% csrf_token %}
+  <b>Firstname:</b><input type="text" name="first_name" size="30" placeholder="firstname" required><br>
+  <b>Lastname:</b><input type="text" name="last_name" size="30" placeholder="lastname"> <br>
+  <b>Username:</b><input type="text" name="username" size="30" placeholder="username"> <br>
+  <b>Email:</b><input type="email"  name="email" size="30" placeholder="email id"><br>
+  <b>Password 1:</b><input type="Password" size="30"  name="password1" placeholder="password"><br>
+  <b>Password 2:</b><input type="Password" size="30"  name="password2" placeholder="confirm password"><br>
+  <input type="submit" value="Register">
+</form>
+<div>
+  {% for message in messages %}
+  <h4>{{message}}</h4>
+  {% endfor %}
+</div>
+</Body>
+</Html>
+{% endblock %}

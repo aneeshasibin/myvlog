@@ -1,0 +1,44 @@
+{% load static %}
+<html lang="">
+<head>
+<title>Sislaf</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<div class="bgded overlay" style="background-image:url({% static 'hm/images/demo/backgrounds/bg.jpg' %});">
+
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <h1><a href="/">My Shopping</a></h1>
+      </div>
+      <nav id="mainav" class="fl_right">
+          <ul class="clear">
+          <li class="active" style="color:white;"><a href="/">Menu</a>
+         <ul class="clear">
+          <li class="active"><a href="/">Home</a></li>
+           <li><a class="active" href="{% url 'CartDetails' %}"><i class="fa fa-shopping-cart">{{itc}}</i></a></li>
+
+
+
+             {% if user.is_authenticated %}
+             <li>Hai {{user.username}}</li>
+             <li><a class="active" href="accounts/logout">Logout</a></li>
+             {% else %}
+             <li><a class="active" href="accounts/register">Register</a></li>
+             <li><a class="active" href="accounts/login">Login</a></li>
+             {% endif %}
+         </ul>
+              </li>
+          </ul>
+
+      </nav>
+    </header>
+  </div>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
